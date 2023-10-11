@@ -56,7 +56,7 @@ function newParty(){
 //#endregion
 
 // Initialisation
-// mixCards();
+mixCards();
 init();
 
 // Ecouteur sur chaque carte

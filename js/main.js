@@ -48,8 +48,10 @@ function init() {
 /*
 Fonction nouvelle partie
 */
-function newParty(){
+function newParty() {
     history.go();
+    mixCards();
+    init();
     btnNewParty.style.cssText = "display: none";
     message.textContent = ``;
 }
@@ -87,7 +89,7 @@ for (let i = 0; i < cardTab.length; i++) {
                     }
                     // Doublon identiques
                     else {
-                        sameCard ++;
+                        sameCard++;
                         setTimeout(() => {
                             cardTab[i].style.background = "linear-gradient(90deg, #a9fabb, #0e5a07)";
                             cardTab[iTmp].style.background = "linear-gradient(90deg, #a9fabb, #0e5a07)";
@@ -96,9 +98,9 @@ for (let i = 0; i < cardTab.length; i++) {
                             result[i] = true;
                             result[iTmp] = true;
                             canPlay = true;
-                            if (sameCard == 6){
+                            if (sameCard == 6) {
                                 btnNewParty.style.cssText = "display: block";
-                                message.textContent = `Félicitation ! Vous avez terminé la partie en ${shot/2} coups`;
+                                message.textContent = `Félicitation ! Vous avez terminé la partie en ${shot / 2} coups`;
                             }
                         }, 1500)
                     }
@@ -112,13 +114,13 @@ for (let i = 0; i < cardTab.length; i++) {
 }
 
 // Ecouteur de la touche espace
-document.addEventListener("keydown", evt=>{
-    if(evt.code === 'Space'){
+document.addEventListener("keydown", evt => {
+    if (evt.code === 'Space') {
         newParty();
     }
-},false)
+}, false)
 
 // Ecouteur du bouton nouvelle partie
-btnNewParty.addEventListener("click",evt=>{
+btnNewParty.addEventListener("click", evt => {
     newParty();
-},false)
+}, false)
